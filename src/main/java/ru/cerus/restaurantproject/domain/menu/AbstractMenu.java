@@ -12,7 +12,8 @@ import java.util.List;
 @ToString
 //@MappedSuperclass
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "menu_type")
 public abstract class AbstractMenu {
     @Id
     @Column(name = "id")
@@ -22,6 +23,11 @@ public abstract class AbstractMenu {
     private String name;
     @Column(name = "calories")
     private int calories;
+    @ManyToMany
+    @JoinTable(name = "tb_cathegory_menu",
+            joinColumns = @JoinColumn(name = "menu_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id"))
+    private List<Category> categoryList;
     @Column(name = "price")
     private int price;
     @Column(name = "carbohydrates")

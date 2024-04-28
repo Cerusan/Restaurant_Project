@@ -18,7 +18,6 @@ public class Category {
     private long id;
     @Column(name = "name")
     private String name;
-    @Column(name = "menus")
     @ManyToMany
     @JoinTable(name = "tb_cathegory_menu",
             joinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id"),

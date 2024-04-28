@@ -12,12 +12,7 @@ import java.util.List;
 @ToString
 @Entity
 @Table(name = "tb_foods")
+@DiscriminatorValue("Food")
 public class Food extends AbstractMenu{
 
-    @Column(name = "categories")
-    @ManyToMany
-    @JoinTable(name = "tb_cathegory_menu",
-            joinColumns = @JoinColumn(name = "menu_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id"))
-    private List<Category> categoryList;
 }
