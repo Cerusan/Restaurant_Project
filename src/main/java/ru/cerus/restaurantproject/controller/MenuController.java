@@ -27,4 +27,11 @@ public class MenuController {
         model.addAttribute("menu", menuList);
         return "menu/menu";
     }
+
+    @GetMapping("drinks")
+    public String drinkList (Model model){
+        List<Drink> drinkList = abstractMenuService.getAllDrink();
+        model.addAttribute("menu", drinkList);
+        return "menu/drinks";
+    }
 }

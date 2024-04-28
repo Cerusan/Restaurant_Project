@@ -38,20 +38,21 @@ public class AbstractMenuServiceImpl implements AbstractMenuService {
 
     @Override
     @Transactional(readOnly = true)
-    public AbstractMenu getAbstractMenuById(Long id) {
-        return abstractMenuRepository.findById(id)
+    public AbstractMenu getAbstractMenuById(Long id) throws Throwable {
+        return (AbstractMenu) abstractMenuRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Dish not found"));
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<AbstractMenu> getAllAbstractMenu() {
-        /*List<AbstractMenu> abstractMenuListTest = abstractMenuRepository.findAll();*/
+        List<AbstractMenu> abstractMenuListTest = abstractMenuRepository.findAll();
         return abstractMenuRepository.findAll();
     }
-/*
+
     public List<Drink> getAllDrink() {
-        return abstractMenuRepository.findAll();
-    }*/
+        List<Drink> drinkListTest = abstractMenuRepository.findAllDrink();
+        return abstractMenuRepository.findAllDrink();
+    }
 
 }

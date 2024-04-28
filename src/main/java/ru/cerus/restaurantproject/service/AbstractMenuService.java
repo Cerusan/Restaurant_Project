@@ -1,6 +1,7 @@
 package ru.cerus.restaurantproject.service;
 
 import ru.cerus.restaurantproject.domain.menu.AbstractMenu;
+import ru.cerus.restaurantproject.domain.menu.Drink;
 
 import java.util.List;
 
@@ -11,7 +12,9 @@ public interface AbstractMenuService {
 
     void updateAbstractMenu(Long id, AbstractMenu newAbstractMenu);
 
-    AbstractMenu getAbstractMenuById(Long id);
+    AbstractMenu getAbstractMenuById(Long id) throws Throwable;
 
     List<AbstractMenu> getAllAbstractMenu();
+
+    List<Drink> getAllDrink();
 }
