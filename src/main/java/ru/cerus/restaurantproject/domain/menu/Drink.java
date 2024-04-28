@@ -11,7 +11,6 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_drinks")
 @DiscriminatorValue("Drink")
 public class Drink extends AbstractMenu{
 

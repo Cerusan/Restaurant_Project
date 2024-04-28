@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+
+<table>
+    <tbody>
+    <tr>
+        <td>Название</td>
+        <td>Цена</td>
+        <td>Состав</td>
+        <td>Категория</td>
+    </tr>
+    <tr th:each="dish : ${menu}">
+        <td th:text="${dish.name}"></td>
+        <td th:text="${dish.price}"></td>
+        <td th:text="${dish.structure}"></td>
+        <td th:text="${dish.categoryList}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -28,4 +28,8 @@ public class Category {
         abstractMenuList.add(abstractMenu);
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }
