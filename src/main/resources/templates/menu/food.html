@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Drinks</title>
+    <title>Foods</title>
 </head>
 <body>
 
@@ -14,16 +14,14 @@
     <td>Цена</td>
     <td>Углеводы на 100 мл</td>
     <td>Состав</td>
-    <td>Крепость</td>
     <td>Категория</td>
   </tr>
-  <tr th:each="element : ${drinks}">
+  <tr th:each="element : ${foods}">
     <td th:text="${element.name}"></td>
     <td th:text="${element.calories}"></td>
     <td th:text="${element.price}"></td>
     <td th:text="${element.carbohydrates}"></td>
     <td th:text="${element.structure}"></td>
-    <td th:text="${element.strength}"></td>
     <td th:text="${element.categoryList}"></td>
   </tr>
   </tbody>

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.cerus.restaurantproject.domain.menu.AbstractMenu;
 import ru.cerus.restaurantproject.domain.menu.Drink;
+import ru.cerus.restaurantproject.domain.menu.Food;
 import ru.cerus.restaurantproject.service.AbstractMenuService;
 import ru.cerus.restaurantproject.service.CategoryService;
 
@@ -32,4 +33,12 @@ public class MenuController {
         model.addAttribute("drinks", drinkList);
         return "menu/drinks";
     }
+
+    @GetMapping("foods")
+    public String foodList (Model model){
+        List<Food> foodList = abstractMenuService.getAllFood();
+        model.addAttribute("foods", foodList);
+        return "menu/food";
+    }
+
 }

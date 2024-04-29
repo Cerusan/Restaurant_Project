@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.cerus.restaurantproject.domain.exception.ResourceNotFoundException;
 import ru.cerus.restaurantproject.domain.menu.AbstractMenu;
 import ru.cerus.restaurantproject.domain.menu.Drink;
+import ru.cerus.restaurantproject.domain.menu.Food;
 import ru.cerus.restaurantproject.repository.AbstractMenuRepository;
 import ru.cerus.restaurantproject.service.AbstractMenuService;
 
@@ -46,13 +47,15 @@ public class AbstractMenuServiceImpl implements AbstractMenuService {
     @Override
     @Transactional(readOnly = true)
     public List<AbstractMenu> getAllAbstractMenu() {
-        List<AbstractMenu> abstractMenuListTest = abstractMenuRepository.findAll();
         return abstractMenuRepository.findAll();
     }
 
     public List<Drink> getAllDrink() {
-        List<Drink> drinkListTest = abstractMenuRepository.findAllDrink();
         return abstractMenuRepository.findAllDrink();
+    }
+
+    public List<Food> getAllFood() {
+        return abstractMenuRepository.findAllFood();
     }
 
 }

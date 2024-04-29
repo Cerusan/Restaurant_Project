@@ -2,6 +2,7 @@ package ru.cerus.restaurantproject.service;
 
 import ru.cerus.restaurantproject.domain.menu.AbstractMenu;
 import ru.cerus.restaurantproject.domain.menu.Drink;
+import ru.cerus.restaurantproject.domain.menu.Food;
 
 import java.util.List;
 
@@ -17,4 +18,6 @@ public interface AbstractMenuService {
     List<AbstractMenu> getAllAbstractMenu();
 
     List<Drink> getAllDrink();
+
+    List<Food> getAllFood();
 }

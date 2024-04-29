@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import ru.cerus.restaurantproject.domain.menu.AbstractMenu;
 import ru.cerus.restaurantproject.domain.menu.Drink;
+import ru.cerus.restaurantproject.domain.menu.Food;
 
 import java.util.List;
 
@@ -12,4 +13,7 @@ import java.util.List;
 public interface AbstractMenuRepository<T extends AbstractMenu> extends JpaRepository<T, Long> {
     @Query("from Drink")
     List<Drink> findAllDrink();
+
+    @Query("from Food")
+    List<Food> findAllFood();
 }
