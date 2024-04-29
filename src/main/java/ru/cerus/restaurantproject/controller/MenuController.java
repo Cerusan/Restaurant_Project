@@ -9,8 +9,6 @@ import ru.cerus.restaurantproject.domain.menu.AbstractMenu;
 import ru.cerus.restaurantproject.domain.menu.Drink;
 import ru.cerus.restaurantproject.service.AbstractMenuService;
 import ru.cerus.restaurantproject.service.CategoryService;
-import ru.cerus.restaurantproject.service.DrinkService;
-import ru.cerus.restaurantproject.service.FoodService;
 
 import java.util.List;
 
@@ -31,7 +29,7 @@ public class MenuController {
     @GetMapping("drinks")
     public String drinkList (Model model){
         List<Drink> drinkList = abstractMenuService.getAllDrink();
-        model.addAttribute("menu", drinkList);
+        model.addAttribute("drinks", drinkList);
         return "menu/drinks";
     }
 }
