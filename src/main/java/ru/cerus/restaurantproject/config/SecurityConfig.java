@@ -22,11 +22,12 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         return http.authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers("/admin/*").hasAnyAuthority("ROLE_ADMIN")
+                        .requestMatchers("/user/*").hasAnyAuthority("ROLE_USER")
                         .anyRequest().permitAll())
                 .formLogin((login) -> login
                         .loginPage("/auth/login")
                         .loginProcessingUrl("/process_login")
-                        .defaultSuccessUrl("/menu/", true)
+                        .defaultSuccessUrl("/menu", true)
                         .failureUrl("/auth/login?error")
                         .permitAll())
                 .logout((logout) -> logout

@@ -15,7 +15,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/menu/")
+@RequestMapping("/menu")
 public class MenuController {
     private final AbstractMenuService abstractMenuService;
     private final CategoryService categoryService;
@@ -27,14 +27,14 @@ public class MenuController {
         return "menu/menu";
     }
 
-    @GetMapping("drinks")
+    @GetMapping("/drinks")
     public String drinkList (Model model){
         List<Drink> drinkList = abstractMenuService.getAllDrink();
         model.addAttribute("drinks", drinkList);
         return "menu/drinks";
     }
 
-    @GetMapping("foods")
+    @GetMapping("/foods")
     public String foodList (Model model){
         List<Food> foodList = abstractMenuService.getAllFood();
         model.addAttribute("foods", foodList);
