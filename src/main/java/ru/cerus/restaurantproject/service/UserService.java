@@ -10,7 +10,7 @@ public interface UserService {
 
     User getAuthUser();
 
-    void updateUser(Long id, User newUser);
+    void updateUser(User oldUser, User newUser);
 
     List<User> getAllUsers();
 

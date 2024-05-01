@@ -27,10 +27,10 @@ public class UserController {
             return "auth/login";
     }
 
-    @PostMapping("edit-process")
+    @PostMapping("/edit-process")
     public String updateUser(@ModelAttribute("user") User userNew){
         User userOld = userService.getAuthUser();
-        userService.updateUser(userOld.getId(), userNew);
+        userService.updateUser(userOld, userNew);
         return "redirect:/user";
     }
 

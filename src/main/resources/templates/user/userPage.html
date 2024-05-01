@@ -10,5 +10,14 @@
     <p th:text="${'Личный кабинет - ' + user.name + ' ' + user.surname}"></p> <br>
 </div>
 
+<form th:method="POST" th:action="@{/user/edit-process}" th:object="${user}">
+    <input type="text" th:field="*{name}">
+    </br>
+    <input type="text" th:field="*{surname}">
+    </br>
+    <input type="submit" th:value="${'Сохранить изменения'}">
+    </br>
+</form>
+
 </body>
 </html>
