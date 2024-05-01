@@ -29,13 +29,24 @@ public class UserController {
             return "auth/login";
     }
 
-    @PostMapping("/edit-process")
+    @GetMapping("/update")
+    public String userUpdateInformation(Model model){
+        User user = userService.getAuthUser();
+
+        if (user != null) {
+            model.addAttribute("user", user);
+            return "user/userUpdatePage";
+        } else
+            return "auth/login";
+    }
+
+    @PostMapping("/update/edit-process")
     public String updateUser(@ModelAttribute("user") @Valid User userNew,
                              BindingResult bindingResult){
         User userOld = userService.getAuthUser();
 
         if (bindingResult.hasErrors())
-            return "/user/userPage";
+            return "/user/userUpdatePage";
 
         userService.updateUser(userOld, userNew);
         return "redirect:/user";
