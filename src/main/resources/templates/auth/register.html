@@ -7,10 +7,22 @@
 <body>
 
 <form method="post" th:action="@{/auth/process_register}" th:object="${userReg}">
-    <input type="text" placeholder="Name" th:field="*{name}">
-    <input type="text" placeholder="Surname" th:field="*{surname}">
-    <input type="text" placeholder="Login" th:field="*{login}">
-    <input type="password" placeholder="Password" th:field="*{password}">
+    <label for="name">Name</label>
+    <input type="text" placeholder="Name" th:field="*{name}" id="name">
+    <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+    </br>
+    <label for="surname">Surname</label>
+    <input type="text" placeholder="Surname" th:field="*{surname}" id="surname">
+    <div style="color: red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Surname error</div>
+    </br>
+    <label for="login">Login</label>
+    <input type="text" placeholder="Login" th:field="*{login}" id="login">
+    <div style="color: red" th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login error</div>
+    </br>
+    <label for="password">Password</label>
+    <input type="password" placeholder="Password" th:field="*{password}" id="password">
+    <div style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</div>
+    </br>
     <input type="submit" value="Register">
 </form>
 

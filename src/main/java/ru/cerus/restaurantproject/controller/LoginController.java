@@ -28,7 +28,11 @@ public class LoginController {
     }
 
     @PostMapping("/process_register")
-    public String registerProcess(@ModelAttribute("userReg") User user) {
+    public String registerProcess(@ModelAttribute("userReg") @Valid User user,
+                                  BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "auth/register";
+
         userService.register(user);
         return "redirect:/auth/login";
     }
