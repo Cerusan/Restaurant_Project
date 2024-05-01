@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Account</title>
+    <title>User account</title>
 </head>
 <body>
 
@@ -11,6 +11,10 @@
 <div>
     <p th:text="${'Личный кабинет - ' + user.name + ' ' + user.surname}"></p> <br>
 </div>
+
+<form th:method="POST" th:action="@{/logout}">
+    <input type="submit" th:value="Выйти">
+</form>
 
 <form th:method="POST" th:action="@{/user/edit-process}" th:object="${user}">
     <label for="name">Name</label>
