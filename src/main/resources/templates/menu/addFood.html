@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new Food</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/menu/create/addFood/process_addFood}" th:object="${newDish}">
+    <label for="name">Название блюда</label>
+    <input type="text" placeholder="Название" th:field="*{name}" id="name">
+    <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+    </br>
+    <label for="calories">Кол-во калорий</label>
+    <input type="text" placeholder="Калории" th:field="*{calories}" id="calories">
+    <div style="color: red" th:if="${#fields.hasErrors('calories')}" th:errors="*{calories}">Calories error</div>
+    </br>
+    <label for="price">Цена</label>
+    <input type="text" placeholder="Цена" th:field="*{price}" id="price">
+    <div style="color: red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price error</div>
+    </br>
+    <label for="carbohydrates">Кол-во углеводов на 100 мг</label>
+    <input type="text" placeholder="Углеводы" th:field="*{carbohydrates}" id="carbohydrates">
+    <div style="color: red" th:if="${#fields.hasErrors('carbohydrates')}" th:errors="*{carbohydrates}">Carbohydrates error</div>
+    </br>
+    <label for="structure">Категории блюда</label>
+    <input type="text" placeholder="Категории" th:field="*{structure}" id="structure">
+    <div style="color: red" th:if="${#fields.hasErrors('structure')}" th:errors="*{structure}">Structure error</div>
+    </br>
+    <input type="submit" value="Добавить">
+</form>
+
+</body>
+</html>
