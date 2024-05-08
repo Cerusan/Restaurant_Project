@@ -23,7 +23,7 @@
     <input type="text" placeholder="Углеводы" th:field="*{carbohydrates}" id="carbohydrates">
     <div style="color: red" th:if="${#fields.hasErrors('carbohydrates')}" th:errors="*{carbohydrates}">Carbohydrates error</div>
     </br>
-    <label for="structure">Категории блюда</label>
+    <label for="structure">Состав</label>
     <input type="text" placeholder="Категории" th:field="*{structure}" id="structure">
     <div style="color: red" th:if="${#fields.hasErrors('structure')}" th:errors="*{structure}">Structure error</div>
     </br>
