@@ -2,8 +2,6 @@ package ru.cerus.restaurantproject.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import ru.cerus.restaurantproject.domain.exception.ResourceNotFoundException;
 import ru.cerus.restaurantproject.domain.menu.AbstractMenu;
 import ru.cerus.restaurantproject.domain.menu.Category;
 import ru.cerus.restaurantproject.domain.menu.Drink;
@@ -11,58 +9,59 @@ import ru.cerus.restaurantproject.domain.menu.Food;
 import ru.cerus.restaurantproject.repository.AbstractMenuRepository;
 import ru.cerus.restaurantproject.service.AbstractMenuService;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class AbstractMenuServiceImpl implements AbstractMenuService {
-
+public class FoodServiceImpl implements AbstractMenuService {
     private final AbstractMenuRepository abstractMenuRepository;
     private final CategoryServiceImpl categoryService;
 
     @Override
-    @Transactional
-    public void createAbstractMenu(Long id, AbstractMenu abstractMenu) {
-        Category category = categoryService.getCategoryById(id);
+    public void createAbstractMenu(Long categoryId, AbstractMenu abstractMenu) {
+        Category category = categoryService.getCategoryById(categoryId);
 
         AbstractMenu abstractMenuNew = new Food();
-        abstractMenuRepository.save(abstractMenu);
+
+        abstractMenuNew.setName(abstractMenu.getName());
+        abstractMenuNew.setCalories(abstractMenu.getCalories());
+        abstractMenuNew.setPrice(abstractMenu.getPrice());
+        abstractMenuNew.setStructure(abstractMenu.getStructure());
+        abstractMenuNew.setCarbohydrates(abstractMenu.getCarbohydrates());
+        abstractMenuNew.setCategoryList(new ArrayList<>(Collections.singletonList(category)));
+
+        abstractMenuRepository.save(abstractMenuNew);
     }
 
     @Override
-    @Transactional
     public void deleteAbstractMenu(Long id) {
-        abstractMenuRepository.deleteById(id);
+
     }
 
     @Override
-    @Transactional
     public void updateAbstractMenu(Long id, AbstractMenu newAbstractMenu) {
-        newAbstractMenu.setId(id);
-        abstractMenuRepository.save(newAbstractMenu);
+
     }
 
     @Override
-    @Transactional(readOnly = true)
     public AbstractMenu getAbstractMenuById(Long id) throws Throwable {
-        return (AbstractMenu) abstractMenuRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Dish not found"));
+        return null;
     }
 
     @Override
-    @Transactional(readOnly = true)
     public List<AbstractMenu> getAllAbstractMenu() {
         return abstractMenuRepository.findAll();
     }
 
-    @Transactional(readOnly = true)
+    @Override
     public List<Drink> getAllDrink() {
-        return abstractMenuRepository.findAllDrink();
+        return null;
     }
 
-    @Transactional(readOnly = true)
+    @Override
     public List<Food> getAllFood() {
-        return abstractMenuRepository.findAllFood();
+        return null;
     }
-
 }

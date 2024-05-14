@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.cerus.restaurantproject.domain.exception.ResourceNotFoundException;
+import ru.cerus.restaurantproject.domain.menu.AbstractMenu;
 import ru.cerus.restaurantproject.domain.menu.Category;
 import ru.cerus.restaurantproject.repository.CategoryRepository;
 import ru.cerus.restaurantproject.service.CategoryService;
@@ -54,4 +55,5 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> getAllCategory() {
         return categoryRepository.findAll();
     }
+
 }

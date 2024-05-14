@@ -36,4 +36,8 @@ public abstract class AbstractMenu {
     @Column(name = "structure")
     private String structure;
 
+    public void addCategoryToCategoryList(Category category) {
+        categoryList.add(category);
+    }
+
 }

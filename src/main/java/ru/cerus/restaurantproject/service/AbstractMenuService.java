@@ -7,7 +7,7 @@ import ru.cerus.restaurantproject.domain.menu.Food;
 import java.util.List;
 
 public interface AbstractMenuService {
-    void createAbstractMenu(AbstractMenu abstractMenu);
+    void createAbstractMenu(Long id, AbstractMenu abstractMenu);
 
     void deleteAbstractMenu(Long id);
 

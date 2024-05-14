@@ -19,7 +19,7 @@ public class Category {
     @Column(name = "name")
     private String name;
     @ManyToMany
-    @JoinTable(name = "tb_cathegory_menu",
+    @JoinTable(name = "tb_category_menu",
             joinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "menu_id", referencedColumnName = "id"))
     private List<AbstractMenu> abstractMenuList;
